@@ -45,11 +45,21 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during teleoperated mode. */
   @Override
   public void teleopPeriodic() {
-    m_leftDrive1.set(ControlMode.PercentOutput, -m_controller.getLeftY());
-    m_leftDrive2.set(ControlMode.PercentOutput, -m_controller.getLeftY());
+    m_leftDrive1.set(ControlMode.PercentOutput, m_controller.getLeftY());
+    m_leftDrive2.set(ControlMode.PercentOutput, m_controller.getLeftY());
     m_rightDrive1.set(ControlMode.PercentOutput, -m_controller.getRightY());
-    m_rightDrive2.set( -m_controller.getRightY());
+    m_rightDrive2.set(m_controller.getRightY());
    
+  }
+  @Override
+  public void disabledPeriodic(){
+
+  }
+
+  @Override
+  public void robotPeriodic() {
+    // TODO Auto-generated method stub
+    super.robotPeriodic();
   }
 
   /** This function is called once each time the robot enters test mode. */
